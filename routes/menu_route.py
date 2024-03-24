@@ -25,7 +25,7 @@ def save_menu():
 
 # 分页查询
 @app.route('/menu/page')
-def get_page():
+def get_menu_page():
     current_page = request.args.get('currentPage', 1)
     name = request.args.get('name')
     parent_id = request.args.get('parentId', None)

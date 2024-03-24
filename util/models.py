@@ -28,8 +28,6 @@ class User(Base):
     email = Column(String(100), comment='邮箱')
     phone = Column(String(20), comment='手机号')
     sex = Column(Integer, comment='性别 0-未知 1男 2女')
-    role_id = Column(Integer)
     avatar = Column(String(200), comment='头像')
     password = Column(String(40), comment='密码')
-    dept_id = Column(Integer, comment='部门id')
     comment = Column(String(100), comment='备注')
