@@ -1,4 +1,4 @@
-from sqlalchemy import desc, update
+from sqlalchemy import desc
 
 from util import result
 from util.models import Menu
@@ -45,19 +45,18 @@ def del_menu(menu_id):
 def update_menu(menu):
     menu_to_update = session.query(Menu).filter_by(id=menu.id).first()
     if menu_to_update:
-        sql = update(Menu).where(Menu.id == menu.id).values()
-        print(sql)
-        # if menu.url:
-        #     menu_to_update.url = menu.url
-        # if menu.name:
-        #     menu_to_update.name = menu.name
-        # if menu.parent_id:
-        #     menu_to_update.parent_id = menu.parent_id
-        # if menu.icon:
-        #     menu_to_update.icon = menu.icon
-        # if menu.orders:
-        #     menu_to_update.orders = menu.orders
-        # session.add(menu_to_update)
+        if menu.url:
+            menu_to_update.url = menu.url
+        if menu.name:
+            menu_to_update.name = menu.name
+        if menu.parent_id:
+            menu_to_update.parent_id = menu.parent_id
+        if menu.icon:
+            menu_to_update.icon = menu.icon
+        if menu.orders:
+            menu_to_update.orders = menu.orders
+        session.add(menu_to_update)
+        session.flush()
         return result.Result().success()
     else:
         return result.Result().fail()

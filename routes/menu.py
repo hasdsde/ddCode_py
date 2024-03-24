@@ -5,7 +5,7 @@ from service import menuService
 from util.models import Menu
 
 
-@app.route("/menu", methods=['POST'])
+@app.route("/menu", methods=['POST', 'PUT'])
 def save_menu():
     data = request.get_json()
     menu = Menu()
@@ -16,7 +16,10 @@ def save_menu():
     menu.authority_id = data['authorityId']
     menu.orders = data['orders']
     menu.icon = data['icon']
-    return menuService.save_menu(menu)
+    if menu.id:
+        return menuService.update_menu(menu)
+    else:
+        return menuService.save_menu(menu)
 
 
 @app.route('/menu/page')
