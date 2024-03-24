@@ -40,3 +40,9 @@ def get_all_parent():
 @app.route("/menu/child")
 def get_all_child():
     return menuService.get_all_child()
+
+
+@app.route("/menu/del/batch", methods=['DELETE'])
+def menu_del_batch():
+    data = request.get_json();
+    return menuService.menu_del_batch(data)
