@@ -61,8 +61,17 @@ pip install flasgger
 
 ### 配置
 
-- 数据库配置 config.py
-- swagger配置 routes/__init__.py
+数据库配置 config.py
+
+```python
+HOST = 'localhost'
+PORT = 3306
+USERNAME = '123123'
+PASSWORD = '123123'
+DB = 'code'
+```
+
+swagger配置 routes/__init__.py
 
 ### 地址
 
